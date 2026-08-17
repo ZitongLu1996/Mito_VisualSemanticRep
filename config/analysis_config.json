@@ -1,0 +1,49 @@
+{
+  "participants": ["subj01", "subj02", "subj05", "subj07"],
+  "hemispheres": ["lh", "rh"],
+  "surface_input": "fsaverage164k non-medial-wall cortex",
+  "surface_inference": "fsaverage10k",
+  "test_images": "official NSD shared1000",
+  "repeat_averaging": 3,
+  "feature_analyses": {
+    "dinov2_minilm": {
+      "visual_model": "DINOv2 ViT-B/14",
+      "visual_stages": ["block03", "block06", "block09", "block12"],
+      "semantic_model": "sentence-transformers/all-MiniLM-L6-v2"
+    },
+    "cornet_s_mpnet": {
+      "visual_model": "CORnet-S",
+      "visual_stages": ["V1", "V2", "V4", "IT"],
+      "semantic_model": "sentence-transformers/all-mpnet-base-v2"
+    }
+  },
+  "spatial_pyramid_levels": [1, 2, 4],
+  "pca_components_max": 512,
+  "outer_folds": 5,
+  "inner_folds": 4,
+  "ridge_alphas": [0.01, 0.1, 1, 10, 100, 1000, 10000],
+  "encoding_bootstrap": 10000,
+  "encoding_mask_fdr": 0.05,
+  "noise_ceiling_threshold": null,
+  "noise_ceiling_normalization": false,
+  "mitochondrial_maps": ["MitoD", "MRC"],
+  "mitochondrial_covariate": "Margulies PG1",
+  "mitochondrial_spatial_permutations": 100000,
+  "mitochondrial_fdr_family": "UV, US and Shared crossed with MitoD and MRC, separately per feature analysis",
+  "ahba_hemisphere": "left",
+  "ahba_surface_distance_mm": 3.0,
+  "ahba_donors": 6,
+  "ahba_genes": 16008,
+  "ahba_covariates": ["donor fixed effects", "Margulies PG1"],
+  "ahba_spatial_permutations": 100000,
+  "enrichment_variance_maps": ["unique_visual", "unique_semantic"],
+  "enrichment_gene_set_size": [10, 500],
+  "enrichment_libraries": [
+    "GO Biological Process",
+    "Adult human cortical cell types",
+    "MitoCarta 3.0 MitoPathways"
+  ],
+  "enrichment_test": "two-sided competitive Mann-Whitney U",
+  "enrichment_effect_size": "rank-biserial correlation"
+}
+
