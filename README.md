@@ -108,14 +108,6 @@ on a workstation or cluster with sufficient memory and storage.
 - Ranked enrichment uses the complete 16,008-gene universe. GO term clustering
   is display-level redundancy reduction and does not change p or q values.
 
-## Tests
-
-Run the numerical unit tests from the repository root:
-
-```bash
-pytest -q
-```
-
 ## Citation
 
 If you use this code or the accompanying results, please cite the preprint:
